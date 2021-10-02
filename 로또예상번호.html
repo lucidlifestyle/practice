@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또 예상번호</title>
+</head>
+<body>
+    <h2>로또 예상번호</h2>
+
+    <script>
+        let lotArr = [];
+        //generate lotto number w/compare
+        for(let i=0; i<6; i++){
+            lotArr.push(Math.floor(Math.random()*45)+1); 
+            for(let j=0; j<i; j++){
+                if (lotArr[i]==lotArr[j]) {
+                    lotArr.pop();
+                    i--;  
+                }
+            }
+        }
+        
+        //sort lotto number - ascending
+        lotArr.sort(function(a,b){
+            return a-b;
+        });
+
+        //print
+        document.write("이번 주 로또 예상번호 : "+lotArr);
+    </script>
+</body>
+</html>
